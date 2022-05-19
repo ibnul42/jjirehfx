@@ -1,12 +1,17 @@
-import { Fragment, useState } from "react";
+/* This example requires Tailwind CSS v2.0+ */
+import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
+  BookmarkAltIcon,
+  CalendarIcon,
   ChartBarIcon,
   CursorClickIcon,
-  DocumentReportIcon,
   MenuIcon,
+  PhoneIcon,
+  PlayIcon,
   RefreshIcon,
   ShieldCheckIcon,
+  SupportIcon,
   ViewGridIcon,
   XIcon,
 } from "@heroicons/react/outline";
@@ -45,13 +50,10 @@ const solutions = [
     href: "#",
     icon: RefreshIcon,
   },
-  {
-    name: "Reports",
-    description:
-      "Get detailed reports that will help you make more informed decisions ",
-    href: "#",
-    icon: DocumentReportIcon,
-  },
+];
+const callsToAction = [
+  { name: "Watch Demo", href: "#", icon: PlayIcon },
+  { name: "Contact Sales", href: "#", icon: PhoneIcon },
 ];
 const resources = [
   {
@@ -59,23 +61,105 @@ const resources = [
     description:
       "Get all of your questions answered in our forums or contact support.",
     href: "#",
+    icon: SupportIcon,
   },
   {
     name: "Guides",
     description:
       "Learn how to maximize our platform to get the most out of it.",
     href: "#",
+    icon: BookmarkAltIcon,
   },
   {
     name: "Events",
     description:
       "See what meet-ups and other events we might be planning near you.",
     href: "#",
+    icon: CalendarIcon,
   },
   {
     name: "Security",
     description: "Understand how we take your privacy seriously.",
     href: "#",
+    icon: ShieldCheckIcon,
+  },
+];
+const recentPosts = [
+  { id: 1, name: "Boost your conversion rate", href: "#" },
+  {
+    id: 2,
+    name: "How to use search engine optimization to drive traffic to your site",
+    href: "#",
+  },
+  { id: 3, name: "Improve your customer experience", href: "#" },
+];
+
+const menu = [
+  {
+    name: "Home",
+    linkTo: "#!",
+    submenu: [
+      {
+        name: "Homepage 2",
+        linkTo: "#!",
+      },
+      {
+        name: "Homepage 3",
+        linkTo: "#!",
+      },
+      {
+        name: "Homepage 4",
+        linkTo: "#!",
+      },
+    ],
+  },
+  {
+    name: "Markets",
+    linkTo: "#!",
+  },
+  {
+    name: "Company",
+    linkTo: "#!",
+    submenu: [
+      {
+        name: "About",
+        linkTo: "#!",
+      },
+      {
+        name: "Blog",
+        linkTo: "#!",
+      },
+      {
+        name: "Career",
+        linkTo: "#!",
+      },
+      {
+        name: "Contact",
+        linkTo: "#!",
+      },
+    ],
+  },
+  {
+    name: "Education",
+    linkTo: "#!",
+  },
+  {
+    name: "Resources",
+    linkTo: "#!",
+    submenu: [
+      {
+        name: "Documentation",
+        linkTo: "#!",
+      },
+      {
+        name: "Help Center",
+        linkTo: "#!",
+      },
+      {
+        name: "Customer Support",
+        linkTo: "#!",
+      },
+    ],
   },
 ];
 
@@ -83,195 +167,99 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Index() {
-  const [myMenu, setMymenu] = useState(false);
+export default function Example() {
   return (
-    <Popover className="relative bg-white">
-      <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
-        <div>
-          <a href="#" className="flex">
-            <span className="sr-only">Workflow</span>
-            <img
-              className="h-8 w-auto sm:h-10"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt=""
-            />
-          </a>
-        </div>
-        <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-            <span className="sr-only">Open menu</span>
-            <MenuIcon className="h-6 w-6" aria-hidden="true" />
-          </Popover.Button>
-        </div>
-        <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
-          <Popover.Group as="nav" className="flex space-x-10">
-            <Popover className="relative">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    onMouseOver={() => console.log("11111")}
-                    onMouseLeave={() => console.log("222")}
-                    className={classNames(
-                      open ? "text-gray-900" : "text-gray-500",
-                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    )}
-                  >
-                    <span>Solutions</span>
-                    <ChevronDownIcon
-                      className={classNames(
-                        open ? "text-gray-600" : "text-gray-400",
-                        "ml-2 h-5 w-5 group-hover:text-gray-500"
-                      )}
-                      aria-hidden="true"
-                    />
-                  </Popover.Button>
-
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-3xl">
-                      <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
-                          {solutions.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
-                            >
-                              <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                                <item.icon
-                                  className="h-6 w-6"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900">
-                                  {item.name}
-                                </p>
-                                <p className="mt-1 text-sm text-gray-500">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                        <div className="p-5 bg-gray-50 sm:p-8">
-                          <a
-                            href="#"
-                            className="-m-3 p-3 flow-root rounded-md hover:bg-gray-100"
+    <Popover className="relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+          <div className="flex justify-between gap-10 items-center">
+            <div className="flex justify-start">
+              <a href="#">
+                <span className="sr-only">Workflow</span>
+                <img
+                  className="h-8 w-auto sm:h-10"
+                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+            <Popover.Group as="nav" className="hidden md:flex space-x-10">
+              {menu &&
+                menu.map((item, index) => (
+                  <Popover className="relative" key={index}>
+                    {({ open }) => (
+                      <>
+                        <Popover.Button
+                          className={classNames(
+                            open ? "text-gray-900" : "text-gray-500",
+                            "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          )}
+                        >
+                          <span>{item.name}</span>
+                          {item.submenu && (
+                            <ChevronDownIcon
+                              className={classNames(
+                                open ? "text-gray-600" : "text-gray-400",
+                                "ml-2 h-5 w-5 group-hover:text-gray-500"
+                              )}
+                              aria-hidden="true"
+                            />
+                          )}
+                        </Popover.Button>
+                        {item.submenu && (
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 translate-y-1"
                           >
-                            <div className="flex items-center">
-                              <div className="text-base font-medium text-gray-900">
-                                Enterprise
+                            <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-48 max-w-md sm:px-0">
+                              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                  {item &&
+                                    item.submenu &&
+                                    item.submenu.map((subMenu) => (
+                                      <a
+                                        key={subMenu.name}
+                                        href={subMenu.linkTo}
+                                        className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                      >
+                                        {subMenu.name}
+                                      </a>
+                                    ))}
+                                </div>
                               </div>
-                              <span className="ml-3 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium leading-5 bg-indigo-100 text-indigo-800">
-                                New
-                              </span>
-                            </div>
-                            <p className="mt-1 text-sm text-gray-500">
-                              Empower your entire team with even more advanced
-                              tools.
-                            </p>
-                          </a>
-                        </div>
-                      </div>
-                    </Popover.Panel>
-                  </Transition>
-                </>
-              )}
-            </Popover>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Docs
-            </a>
-
-            <Popover className="relative">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    className={classNames(
-                      open ? "text-gray-900" : "text-gray-500",
-                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 relative"
+                            </Popover.Panel>
+                          </Transition>
+                        )}
+                      </>
                     )}
-                    onMouseEnter={() => {
-                      setMymenu(true);
-                      console.log(13224532);
-                    }}
-                    onMouseLeave={() => setMymenu(false)}
-                  >
-                    <span>More</span>
-                    {myMenu ? (
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-200"
-                        enterFrom="opacity-0 translate-y-1"
-                        enterTo="opacity-100 translate-y-0"
-                        leave="transition ease-in duration-150"
-                        leaveFrom="opacity-100 translate-y-0"
-                        leaveTo="opacity-0 translate-y-1"
-                      >
-                        <Popover.Panel className="absolute top-5 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
-                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                              {resources.map((item) => (
-                                <a
-                                  key={item.name}
-                                  href={item.href}
-                                  className="-m-3 p-3 block rounded-md hover:bg-gray-50"
-                                >
-                                  <p className="text-base font-medium text-gray-900">
-                                    {item.name}
-                                  </p>
-                                  <p className="mt-1 text-sm text-gray-500">
-                                    {item.description}
-                                  </p>
-                                </a>
-                              ))}
-                            </div>
-                          </div>
-                        </Popover.Panel>
-                      </Transition>
-                    ) : null}
-                    <ChevronDownIcon
-                      className={classNames(
-                        open ? "text-gray-600" : "text-gray-400",
-                        "ml-2 h-5 w-5 group-hover:text-gray-500"
-                      )}
-                      aria-hidden="true"
-                    />
-                  </Popover.Button>
-                </>
-              )}
-            </Popover>
-          </Popover.Group>
-          <div className="flex items-center md:ml-12">
+                  </Popover>
+                ))}
+            </Popover.Group>
+          </div>
+          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
               href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
+              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Sign in
+              Login
             </a>
             <a
               href="#"
-              className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[rgba(252,180,45,0.8)] hover:bg-[rgba(252,180,45,0.99)]"
             >
               Sign up
             </a>
+          </div>
+          <div className="-mr-2 -my-2 md:hidden">
+            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <span className="sr-only">Open menu</span>
+              <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            </Popover.Button>
           </div>
         </div>
       </div>
@@ -307,26 +295,27 @@ function Index() {
                 </div>
               </div>
               <div className="mt-6">
-                <nav className="grid gap-6">
+                <nav className="grid gap-y-8">
                   {solutions.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
+                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
-                      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
-                        <item.icon className="h-6 w-6" aria-hidden="true" />
-                      </div>
-                      <div className="ml-4 text-base font-medium text-gray-900">
+                      <item.icon
+                        className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                        aria-hidden="true"
+                      />
+                      <span className="ml-3 text-base font-medium text-gray-900">
                         {item.name}
-                      </div>
+                      </span>
                     </a>
                   ))}
                 </nav>
               </div>
             </div>
-            <div className="py-6 px-5">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="py-6 px-5 space-y-6">
+              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
@@ -340,13 +329,6 @@ function Index() {
                 >
                   Docs
                 </a>
-
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Enterprise
-                </a>
                 {resources.map((item) => (
                   <a
                     key={item.name}
@@ -357,7 +339,7 @@ function Index() {
                   </a>
                 ))}
               </div>
-              <div className="mt-6">
+              <div>
                 <a
                   href="#"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
@@ -378,5 +360,3 @@ function Index() {
     </Popover>
   );
 }
-
-export default Index;
