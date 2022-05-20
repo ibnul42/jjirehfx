@@ -55,6 +55,6 @@ html {
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(-30px);
+    transform: translateY(-25px);
   }
 }

@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   BookmarkAltIcon,
@@ -16,6 +16,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { Link } from "react-router-dom";
 
 const solutions = [
   {
@@ -168,22 +169,23 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <Popover className="relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+        <div className="flex justify-between items-center border-b border-gray-400 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-between gap-10 items-center">
-            <div className="flex justify-start">
-              <a href="#">
+            <div className="flex justify-start z-20">
+              <Link to="/">
                 <span className="sr-only">Workflow</span>
                 <img
                   className="h-8 w-auto sm:h-10"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                   alt=""
                 />
-              </a>
+              </Link>
             </div>
-            <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            <Popover.Group as="nav" className="hidden md:flex space-x-10 z-20">
               {menu &&
                 menu.map((item, index) => (
                   <Popover className="relative" key={index}>
@@ -192,8 +194,8 @@ export default function Example() {
                         <>
                           <Popover.Button
                             className={classNames(
-                              open ? "text-gray-900" : "text-gray-500",
-                              "group rounded-md inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                              open ? "text-gray-400" : "text-gray-500",
+                              "group rounded-md inline-flex items-center text-base font-medium hover:text-white"
                             )}
                           >
                             <span>{item.name}</span>
@@ -217,19 +219,19 @@ export default function Example() {
                               leaveFrom="opacity-100 translate-y-0"
                               leaveTo="opacity-0 translate-y-1"
                             >
-                              <Popover.Panel className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-48 bg-white z-10 rounded-xl max-w-md sm:px-0">
+                              <Popover.Panel className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-48 bg-white rounded-xl max-w-md sm:px-0">
                                 <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                   <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8">
                                     {item &&
                                       item.submenu &&
                                       item.submenu.map((subMenu) => (
-                                        <a
+                                        <Link
                                           key={subMenu.name}
-                                          href={subMenu.linkTo}
+                                          to={subMenu.linkTo}
                                           className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-200"
                                         >
                                           {subMenu.name}
-                                        </a>
+                                        </Link>
                                       ))}
                                   </div>
                                 </div>
@@ -238,25 +240,25 @@ export default function Example() {
                           )}
                         </>
                       ) : (
-                        <a
-                          href={item.linkTo}
+                        <Link
+                          to={item.linkTo}
                           className={classNames(
-                            open ? "text-gray-900" : "text-gray-500",
-                            "group rounded-md inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            open ? "text-gray-400" : "text-gray-500",
+                            "group rounded-md inline-flex items-center text-base font-medium hover:text-white"
                           )}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       )
                     }
                   </Popover>
                 ))}
             </Popover.Group>
           </div>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 z-20">
             <a
               href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-white"
+              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-white z-50"
             >
               Login
             </a>
@@ -267,8 +269,8 @@ export default function Example() {
               Sign up
             </a>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
-            <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <div className="-mr-2 -my-2 md:hidden z-20">
+            <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 z-20">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -287,9 +289,9 @@ export default function Example() {
       >
         <Popover.Panel
           focus
-          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-20"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50 bg-white">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
