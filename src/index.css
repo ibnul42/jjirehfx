@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;1,100&display=swap");
+
+body,
+html {
+  font-family: "Archivo", sans-serif;
+}
+
+/* .carousel-slider,
+.slider-wrapper {
+  overflow: visible !important;
+}
+*/
+
+.carousel .carousel-status,
+.control-next,
+.control-prev {
+  display: none;
+}
+
+.control-dots {
+  bottom: 150px !important;
+  text-align: right !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.control-dots .dot {
+  background: #fff !important;
+  opacity: 0.75 !important;
+}
+.control-dots .dot:hover {
+  height: 10px;
+  width: 10px;
+  opacity: 0.99 !important;
+}
+
+.control-dots .dot.selected {
+  background: #e2b663 !important;
+  height: 15px;
+  width: 15px;
+}
+
+.nugget {
+  animation: nugget_anim 3s linear infinite alternate;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes nugget_anim {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}

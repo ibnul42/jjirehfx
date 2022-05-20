@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 function Index() {
   return (
-    <div className="min-h-screen text-black">
+    <div className="min-h-screen bg-[#242426] text-black">
       <Header />
       <Content />
       <Footer />
