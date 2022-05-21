@@ -51,7 +51,7 @@ const Home = () => {
   return (
     <div className="">
       {/* slider */}
-      <section className="max-w-7xl mx-auto z-10 -mb-16">
+      <section className="max-w-7xl mx-auto z-10 -mb-16 slider-bg">
         <Slider />
       </section>
       {/* Product */}
