@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "../../Components/Slider";
 import { IoIosAlbums } from "react-icons/io";
+import { AiFillCaretRight } from "react-icons/ai";
 
 const tradings = [
   {
@@ -54,6 +55,52 @@ function index() {
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="grid grid-cols-2 gap-4 py-10 w-full">
+            <div className="col-span-1 p-10 relative flex justify-center items-center">
+              <div className="absolute top-10 right-16 w-96 h-56 bg-[rgba(252,180,45,0.3)] rounded-lg origin-center rotate-[-10deg]"></div>
+              <div className="ml-32 w-96 h-56 overflow-hidden rounded-lg z-10">
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/yZIummTz9mM"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div className="col-span-1 h-full my-auto flex flex-col justify-center">
+              <div className="flex flex-col justify-around py-5">
+                <h1 className="text-[#333] font-bold">What you will learn</h1>
+                <ul className="my-2 text-gray-500 text-sm">
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    Introduction to Financial Trading
+                  </li>
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    Technical Analysis
+                  </li>
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    Fundamental Analysis
+                  </li>
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    When to Enter & Exit Trades
+                  </li>
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    How to Manage Risk
+                  </li>
+                  <li className="my-2 flex gap-1 items-center">
+                    <AiFillCaretRight fill={"#FCB42D"} />
+                    Trading Psychology
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

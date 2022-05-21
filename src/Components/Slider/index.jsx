@@ -24,7 +24,7 @@ const slider = [
         current: "229.00",
       },
     ],
-    sliderImg: "/assets/slide1.png",
+    sliderImg: "/assets/Design/nugget.png",
   },
   {
     title: "Everyr seg experience",
@@ -49,7 +49,7 @@ const slider = [
         current: "296.00",
       },
     ],
-    sliderImg: "/assets/slide1.png",
+    sliderImg: "/assets/Design/nugget.png",
   },
 ];
 
@@ -93,7 +93,7 @@ const Slider = () => {
               </div>
             </div>
             <div className="col-span-1">
-              <div className="flex justify-center items-center h-[650px]">
+              <div className="flex justify-center items-center h-[550px] w-[550px] mt-10">
                 <img
                   src={item.sliderImg}
                   className="nugget z-0 h-full w-full"
