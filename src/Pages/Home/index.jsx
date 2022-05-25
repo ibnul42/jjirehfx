@@ -40,13 +40,6 @@ const products = [
     color: "#d46217",
     linkTo: "/#!",
   },
-  {
-    title: "Listed Stock",
-    titleShort: "lq",
-    desc: "Access 19,000+ stocks across core and emerging markets on 40+ exchanges worldwide.",
-    color: "#b1bb2c",
-    linkTo: "/#!",
-  },
 ];
 
 const tradings = [
@@ -160,35 +153,37 @@ const Home = () => {
 
       {/* trade info */}
       <section className="bg-[#E4E5E9]">
-        <div className="max-w-7xl mx-auto pt-12 pb-4 grid grid-cols-2 ">
-          <div className="col-span-1 px-3 relative">
-            <div className="absolute top-16 left-32 w-[100px] h-[100px] overflow-hidden rounded-full nugget_elm">
-              <img
-                src="/assets/Design/amazon.png"
-                className="h-full w-full object-cover"
-                alt="icon"
-              />
-            </div>
-            <div className="absolute right-32 top-24 w-[150px] h-[150px] rounded-full overflow-hidden nugget_elm">
-              <img
-                src="/assets/Design/intel.png"
-                className="h-full w-full object-cover"
-                alt="icon"
-              />
-            </div>
-            <div className="absolute left-32 top-56 w-[200px] h-[200px] rounded-full overflow-hidden nugget_elm">
-              <img
-                src="/assets/Design/mc.png"
-                className="h-full w-full object-cover"
-                alt="icon"
-              />
-            </div>
-            <div className="absolute right-32 top-80 w-[80px] h-[80px] rounded-full overflow-hidden nugget_elm">
-              <img
-                src="/assets/Design/yahoo.png"
-                className="h-full w-full object-cover"
-                alt="icon"
-              />
+        <div className="max-w-7xl mx-auto pt-12 pb-4 grid grid-cols-1 md:grid-cols-2 ">
+          <div className="col-span-1 px-10 md:px-16 lg:px-20 xl:px-28 pt-32">
+            <div className="px-5 relative min-h-[350px]">
+              <div className="absolute top-5 left-5 w-20 lg:w-24 h-20 lg:h-24">
+                <img
+                  src="/assets/Trading/amazon.svg"
+                  className="w-full h-full nugget_elm"
+                  alt=""
+                />
+              </div>
+              <div className="absolute top-10 lg:top-12 right-5 w-24 lg:w-28 h-24 lg:h-28">
+                <img
+                  src="/assets/Trading/intel.svg"
+                  className="w-full h-full nugget_elm"
+                  alt=""
+                />
+              </div>
+              <div className="absolute top-32 lg:top-44 left-5 sm:left-8 md:left-5 xl:left-8 w-36 lg:w-40 h-36 lg:h-40">
+                <img
+                  src="/assets/Trading/mcdonald.svg"
+                  className="w-full h-full nugget_elm"
+                  alt=""
+                />
+              </div>
+              <div className="absolute top-48 lg:top-56 right-4 md:right-3 lg:right-6 xl:right-9 w-16 h-16">
+                <img
+                  src="/assets/Trading/yahoo.svg"
+                  className="h-full w-full nugget_elm"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
           <div className="col-span-1 ">
@@ -202,12 +197,12 @@ const Home = () => {
               Managed portfolios are built by experts to target sustainable,
               long-term results and the highest returns for your risk level.
             </p>
-            <div className="flex justify-between gap-4 my-5">
-              <div className="bg-white w-1/2 flex-shrink-0 rounded-lg p-5 shadow-xl overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+              <div className="bg-white col-span-1 rounded-lg p-5 shadow-xl overflow-hidden">
                 <div className="w-full flex justify-center items-center">
                   <div className="h-32 w-32 overflow-hidden">
                     <img
-                      src="/assets/Design/nugget_01.png"
+                      src="/assets/Design/nugget_01.svg"
                       className="h-full w-full"
                       alt="nugget"
                     />
@@ -229,11 +224,11 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-              <div className="bg-white w-1/2 flex-shrink-0 rounded-lg p-5 shadow-xl overflow-hidden">
+              <div className="bg-white col-span-1 rounded-lg p-5 shadow-xl overflow-hidden">
                 <div className="w-full flex justify-center items-center">
                   <div className="h-32 w-32 overflow-hidden">
                     <img
-                      src="/assets/Design/nugget_02.png"
+                      src="/assets/Design/nugget_02.svg"
                       className="h-full w-full"
                       alt="nugget"
                     />
@@ -259,15 +254,16 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       {/* Product */}
       <section className="bg-[#e2b663] w-full-height py-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-3">
           <h1 className="my-8 font-semibold">Popular Products</h1>
-          <div className="flex justify-between flex-wrap gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
             {products &&
               products.map((item, index) => (
                 <div
-                  className="p-4 flex flex-col w-60 bg-[rgba(255,255,255,0.2)] rounded-lg flex-shrink-0 shadow-xl"
+                  className="p-4 flex flex-col col-span-1 bg-[rgba(255,255,255,0.2)] rounded-lg flex-shrink-0 shadow-xl"
                   key={index}
                 >
                   <div className="gap-3 flex items-center my-2">
