@@ -26,31 +26,31 @@ const slider = [
     ],
     sliderImg: "/assets/Design/nugget.png",
   },
-  {
-    title: "Everyr seg experience",
-    desc: "Bring your trading ventures go around the world, way beyond the space of your trading account.",
-    menuItems: [
-      {
-        name: "mcd",
-        icon: "",
-        overall: "0.89",
-        current: "286.00",
-      },
-      {
-        name: "amzn",
-        icon: "",
-        overall: "-0.53",
-        current: "267.00",
-      },
-      {
-        name: "Aapl",
-        icon: "",
-        overall: "-8.89",
-        current: "296.00",
-      },
-    ],
-    sliderImg: "/assets/Design/nugget.png",
-  },
+  // {
+  //   title: "Everyr seg experience",
+  //   desc: "Bring your trading ventures go around the world, way beyond the space of your trading account.",
+  //   menuItems: [
+  //     {
+  //       name: "mcd",
+  //       icon: "",
+  //       overall: "0.89",
+  //       current: "286.00",
+  //     },
+  //     {
+  //       name: "amzn",
+  //       icon: "",
+  //       overall: "-0.53",
+  //       current: "267.00",
+  //     },
+  //     {
+  //       name: "Aapl",
+  //       icon: "",
+  //       overall: "-8.89",
+  //       current: "296.00",
+  //     },
+  //   ],
+  //   sliderImg: "/assets/Design/nugget.png",
+  // },
 ];
 
 const Slider = () => {
@@ -62,14 +62,18 @@ const Slider = () => {
         showThumbs={false}
         interval={2500}
         stopOnHover={false}
-        className="h-[550px] text-white -mt-8"
+        className="text-white -mt-8 h-[540px] xl:h-[768px]"
       >
         {slider.map((item, index) => (
-          <div className="grid grid-cols-2 gap-5" key={index}>
-            <div className="col-span-1 flex flex-col justify-center px-5 py-10 h-[480px]">
-              <h1 className="text-5xl font-bold my-3">{item.title}</h1>
-              <p className="text-md my-3 text-gray-400">{item.desc}</p>
-              <div className="w-full flex justify-between gap-4 mx-2 my-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5" key={index}>
+            <div className="col-span-1 flex flex-col justify-center px-5 py-1 md:py-10 md:h-[480px]">
+              <h1 className="text-xl md:text-5xl font-bold my-3 break-words">
+                {item.title}
+              </h1>
+              <p className="text-sm md:text-md my-3 text-gray-400 break-words">
+                {item.desc}
+              </p>
+              <div className="hidden w-full md:flex justify-between gap-4 mx-2 my-3">
                 {item.menuItems &&
                   item.menuItems.map((subMenu, index) => (
                     <div
@@ -93,12 +97,14 @@ const Slider = () => {
               </div>
             </div>
             <div className="col-span-1">
-              <div className="flex justify-center items-center h-[550px] w-[550px] mt-10">
-                <img
-                  src={item.sliderImg}
-                  className="nugget z-0 h-full w-full"
-                  alt=""
-                />
+              <div className="flex justify-center items-center mt-6">
+                <div className="w-full -mt-3 sm:mt-6 md:mt-10 lg:mt-5 xl:mt-24 2xl:mt-28">
+                  <img
+                    src={item.sliderImg}
+                    className="nugget z-0 h-full w-full"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </div>

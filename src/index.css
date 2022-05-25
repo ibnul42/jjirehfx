@@ -58,7 +58,13 @@ html {
 .slider-bg {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 540px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .slider-bg {
+    height: 768px;
+  }
 }
 
 @keyframes nugget_anim {
