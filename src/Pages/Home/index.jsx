@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Slider from "../../Components/Slider";
 import { IoIosAlbums } from "react-icons/io";
@@ -66,6 +66,9 @@ const tradings = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    document.getElementById("particles-js").style.display = "block";
+  },[])
   return (
     <div className="">
       {/* slider */}
@@ -82,9 +85,9 @@ const Home = () => {
               className="h-full w-full"
               src="https://www.youtube.com/embed/yZIummTz9mM"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>

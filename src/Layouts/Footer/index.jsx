@@ -42,15 +42,15 @@ function Index() {
           </div>
           <div className="col-span-1 grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
             <div className="col-span-1">
-              <ul>
+              <ul className="flex flex-col">
                 <p className="pb-5">Services</p>
-                <li>Data Protection</li>
-                <li>Security Protected</li>
-                <li>Support 24/7</li>
-                <li>Payment Method</li>
-                <li>Registered Company</li>
-                <li>Live exchange Rate</li>
-                <li>Security and Privacy-Centric</li>
+                <Link to="#!" className="inline-block py-1">Data Protection</Link>
+                <Link to="#!" className="inline-block py-1">Security Protected</Link>
+                <Link to="#!" className="inline-block py-1">Support 24/7</Link>
+                <Link to="#!" className="inline-block py-1">Payment Method</Link>
+                <Link to="#!" className="inline-block py-1">Registered Company</Link>
+                <Link to="#!" className="inline-block py-1">Live exchange Rate</Link>
+                <Link to="#!" className="inline-block py-1">Security and Privacy-Centric</Link>
               </ul>
             </div>
             <div className="col-span-1">

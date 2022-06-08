@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 function Index() {
   return (
-    <div className="min-h-screen text-black">
+    <div className="min-h-screen text-black flex flex-col justify-between overflow-y-auto">
       <Header />
       <Content />
       <Footer />

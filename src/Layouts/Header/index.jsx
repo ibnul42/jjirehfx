@@ -195,7 +195,7 @@ export default function Example() {
                           <Popover.Button
                             className={classNames(
                               open ? "text-gray-400" : "text-gray-500",
-                              "group rounded-md inline-flex items-center text-base font-medium hover:text-white"
+                              "group rounded-md inline-flex items-center text-base font-medium hover:text-gray-600"
                             )}
                           >
                             <span>{item.name}</span>
@@ -203,7 +203,7 @@ export default function Example() {
                               <ChevronDownIcon
                                 className={classNames(
                                   open ? "text-gray-600" : "text-gray-400",
-                                  "ml-2 h-5 w-5 group-hover:text-white"
+                                  "ml-2 h-5 w-5 group-hover:text-gray-600"
                                 )}
                                 aria-hidden="true"
                               />
@@ -244,7 +244,7 @@ export default function Example() {
                           to={item.linkTo}
                           className={classNames(
                             open ? "text-gray-400" : "text-gray-500",
-                            "group rounded-md inline-flex items-center text-base font-medium hover:text-white"
+                            "group rounded-md inline-flex items-center text-base font-medium hover:text-gray-600"
                           )}
                         >
                           {item.name}
@@ -256,21 +256,21 @@ export default function Example() {
             </Popover.Group>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 z-20">
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-white z-50"
+            <Link
+              to="/login"
+              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-600 z-50"
             >
               Login
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/register"
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[rgba(252,180,45,0.8)] hover:bg-[rgba(252,180,45,0.99)]"
             >
               Sign up
-            </a>
+            </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden z-20">
-            <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 z-20">
+            <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 z-20">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -302,7 +302,7 @@ export default function Example() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -332,14 +332,14 @@ export default function Example() {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-white"
+                  className="text-base font-medium text-gray-900 hover:text-gray-600"
                 >
                   Pricing
                 </a>
 
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-white"
+                  className="text-base font-medium text-gray-900 hover:text-gray-600"
                 >
                   Docs
                 </a>
@@ -347,7 +347,7 @@ export default function Example() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-base font-medium text-gray-900 hover:text-white"
+                    className="text-base font-medium text-gray-900 hover:text-gray-600"
                   >
                     {item.name}
                   </a>
@@ -362,7 +362,7 @@ export default function Example() {
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-white">
+                  <a href="#" className="text-indigo-600 hover:text-gray-600">
                     Sign in
                   </a>
                 </p>
