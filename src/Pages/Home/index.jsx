@@ -92,7 +92,12 @@ const Home = () => {
 
       {/* trade */}
       <section className="bg-white px-3 py-10">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
+        <div
+          className="max-w-7xl mx-auto flex flex-col items-center bg-no-repeat bg-cover"
+          style={{
+            backgroundImage: 'url("/assets/still_bg.png")',
+          }}
+        >
           <h1 className="text-[#333] text-3xl font-bold py-2">
             Learn to trade
           </h1>
@@ -106,19 +111,25 @@ const Home = () => {
                   className="border border-gray-500 hover:border-yellow-500 flex-shrink-0 rounded-lg cursor-pointer relative p-5 flex flex-col items-center w-56"
                   key={index}
                 >
+                  <div className="absolute w-full h-full top-0 left-0 rounded-lg bg-[#fff] opacity-50"></div>
                   <div className="absolute px-5 bg-white -top-2 left-20">
                     <IoIosAlbums fill="#FCB42D" />
                   </div>
-                  <p className="font-semibold text-[#333] pt-2 text-md py-2">
+                  <p className="font-semibold text-[#333] pt-2 text-md py-2 z-10">
                     {item.title}
                   </p>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <p className="text-gray-400 text-sm z-10">{item.desc}</p>
                 </div>
               ))}
             </div>
             <div className="col-span-1 h-full my-auto flex flex-col justify-center">
               <div className="flex flex-col justify-around py-5">
-                <h1 className="text-[#333] font-bold">What you will learn</h1>
+                <div className="relative">
+                  {/* <div className="absolute w-full h-full top-0 left-0 rounded-lg bg-[#fff] opacity-50"></div> */}
+                  <h1 className="text-[#333] font-bold z-50">
+                    What you will learn
+                  </h1>
+                </div>
                 <ul className="my-2 text-gray-500 text-sm">
                   <li className="my-2 flex gap-1 items-center">
                     <AiFillCaretRight fill={"#FCB42D"} />
